@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen ID</title>
+    <style>
+        html,
+        body,
+        table,
+        button {
+            font-size: 1rem;
+            font-family: 'Roboto';
+        }
+
+        button {
+            height: 40px;
+            width: 100px;
+        }
+
+        li {
+            line-height: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Generate ID</h1>
+    <ul>
+        <li>Click Button (Camera/Fitting/Fitting) to Generate ID</li>
+        <li>ID automatically disappear after 10 seconds</li>
+    </ul>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <td><button id="camera">Camera</button></td>
+            <td style="padding: 15px;">:</td>
+            <td id="fcamera"><i>ID Here</i></td>
+        </tr>
+        <tr>
+            <td><button id="fitting">Fitting</button></td>
+            <td style="padding: 15px;">:</td>
+            <td id="ffitting"><i>ID Here</i></td>
+        </tr>
+        <tr>
+            <td><button id="plug">Plug</button></td>
+            <td style="padding: 15px;">:</td>
+            <td id="fplug"><i>ID Here</i></td>
+        </tr>
+    </table>
+    <script>
+        var t1, t2, t3;
+        var btn1 = document.querySelector("#camera");
+        var f1 = document.querySelector("#fcamera");
+        btn1.addEventListener("click", function() {
+            clearTimeout(t1);
+            f1.textContent = "cam-" + Math.round(Math.random() * 100) + "" + Math.round(new Date().getTime() / 1000) + "" + Math.round(Math.random() * 1000);
+            t1 = setTimeout(function() {
+                f1.textContent = "ID Here";
+            }, 10000);
+        });
+        var btn2 = document.querySelector("#fitting");
+        var f2 = document.querySelector("#ffitting");
+        btn2.addEventListener("click", function() {
+            clearTimeout(t2);
+            f2.textContent = "fit-" + Math.round(Math.random() * 100) + "" + Math.round(new Date().getTime() / 1000) + "" + Math.round(Math.random() * 1000);
+            t2 = setTimeout(function() {
+                f2.textContent = "ID Here";
+            }, 10000);
+        });
+
+        var btn3 = document.querySelector("#plug");
+        var f3 = document.querySelector("#fplug");
+        btn3.addEventListener("click", function() {
+            clearTimeout(t3);
+            f3.textContent = "plu-" + Math.round(Math.random() * 100) + "" + Math.round(new Date().getTime() / 1000) + "" + Math.round(Math.random() * 1000);
+            t3 = setTimeout(function() {
+                f3.textContent = "ID Here";
+            }, 10000);
+        });
+    </script>
+</body>
+
+</html>
